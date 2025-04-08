@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.utc2.giangviendemo.controller.GiangVienController"
+      spacing="10"
+      style="-fx-background-color: white;">
+
+    <VBox alignment="CENTER" style="-fx-background-color: #1E3A8A;">
+        <Label text="QUẢN LÝ GIẢNG VIÊN TRUNG TÂM TIN HỌC NGÔI SAO"
+               textFill="WHITE"
+               style="-fx-font-weight: bold;">
+            <font>
+                <Font size="16"/>
+            </font>
+            <padding>
+                <Insets top="10" bottom="10"/>
+            </padding>
+        </Label>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #F3F4F6; -fx-padding: 10;">
+        <Label text="Chọn Bộ Môn:" />
+        <ComboBox fx:id="cbBoMon" promptText="Công nghệ phần mềm">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Công nghệ phần mềm"/>
+                    <String fx:value="Hệ thống thông tin"/>
+                    <String fx:value="An toàn thông tin"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Button text="Tìm kiếm" />
+    </HBox>
+
+    <HBox spacing="20" HBox.hgrow="ALWAYS">
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <Label text="Danh sách Giảng viên" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="tableGiangVien" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn text="Mã GV" fx:id="colMaGV"/>
+                    <TableColumn text="Họ tên" fx:id="colHoTen"/>
+                    <TableColumn text="Năm sinh" fx:id="colNamSinh"/>
+                    <TableColumn text="Loại" fx:id="colLoai"/>
+                    <TableColumn text="Trình độ" fx:id="colTrinhDo"/>
+                    <TableColumn text="Số năm CT" fx:id="colSoNamCT"/>
+                    <TableColumn text="Môn học" fx:id="colMonHoc"/>
+                    <TableColumn text="Thông tin thêm" fx:id="colThongTinThem"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox spacing="10" prefWidth="300">
+            <Label text="Kết quả" style="-fx-font-weight: bold;"/>
+            <TextArea fx:id="txtKetQua" VBox.vgrow="ALWAYS" wrapText="true" editable="false"/>
+        </VBox>
+    </HBox>
+
+    <VBox spacing="10" style="-fx-background-color: #F3F4F6; -fx-padding: 10;">
+        <Label text="Chức năng" style="-fx-font-weight: bold;"/>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button text="Sửa thông tin" />
+            <Button text="Xóa giảng viên" />
+            <Button text="Thêm giảng viên" />
+        </HBox>
+    </VBox>
+
+    <VBox spacing="10" style="-fx-background-color: #F3F4F6; -fx-padding: 10;">
+        <HBox spacing="20">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="So sánh giảng viên"/>
+                <HBox spacing="10">
+                    <Label text="GV 1:" />
+                    <TextField fx:id="txtGV1" HBox.hgrow="ALWAYS"/>
+                    <Label text="GV 2:" />
+                    <TextField fx:id="txtGV2" HBox.hgrow="ALWAYS"/>
+                    <Button text="So sánh" />
+                </HBox>
+            </VBox>
+
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Kiểm tra giảng viên"/>
+                <HBox spacing="10">
+                    <Label text="Tên GV:" />
+                    <TextField fx:id="txtTenGV" HBox.hgrow="ALWAYS"/>
+                    <Button text="Kiểm tra" />
+                </HBox>
+            </VBox>
+        </HBox>
+
+        <HBox spacing="20">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="GV thỉnh giảng theo năm sinh"/>
+                <HBox spacing="10">
+                    <Label text="Năm sinh:" />
+                    <TextField fx:id="txtNamSinh" HBox.hgrow="ALWAYS"/>
+                    <Button text="Tìm kiếm" />
+                </HBox>
+            </VBox>
+
+            <HBox spacing="10" HBox.hgrow="ALWAYS">
+                <Button text="Sắp xếp GV trong Bộ môn" />
+                <Button text="Thống kê GV theo năm sinh" />
+            </HBox>
+        </HBox>
+    </VBox>
+</VBox>
